@@ -3,12 +3,22 @@ import { ENV } from "./lib/env.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import { connectDB } from "./lib/db.js";
+import cors from "cors"
+import { serve } from "inngest/express"
+import { inngest } from "./lib/inngest.js";
 
 // 1. RECREATE __dirname FOR ES MODULES
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+
+// middleware
+app.use(express.json());
+// credentials: true meaning?? => server alloes a browser to include cookies on request
+app.use(cors({ origin: ENV.CLIENT_URL, credentials: true}));
+
+app.use("/api/inngest", serve({client: inngest, functions}))
 
 app.get("/health", (req, res) => {
     res.status(200).json({msg : "api is up and running"});
