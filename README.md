@@ -61,7 +61,7 @@ Create a `.env` file in the `backend` directory with the following credentials:
 ```env
 PORT=3000
 DB_URL=mongodb://localhost:27017/interview_db
-NODE_ENV=development
+NODE_ENV=********
 CLIENT_URL=http://localhost:5173
 
 # Clerk Auth
