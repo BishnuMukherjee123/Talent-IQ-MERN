@@ -80,12 +80,12 @@ function ProblemsPage() {
               </div>
 
               <div className='stat'>
-                <div className='stat-title'>Easy</div>
+                <div className='stat-title'>Medium</div>
                 <div className='stat-value text-warning'>{mediumProblemsCount}</div>
               </div>
 
               <div className='stat'>
-                <div className='stat-title'>Easy</div>
+                <div className='stat-title'>Hard</div>
                 <div className='stat-value text-error'>{hardProblemsCount}</div>
               </div>
             </div>
