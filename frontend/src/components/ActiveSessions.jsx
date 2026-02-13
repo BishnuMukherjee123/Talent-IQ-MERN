@@ -7,14 +7,14 @@ import {
   ZapIcon,
   LoaderIcon,
 } from "lucide-react";
-import { Link } from 'react-router';
+import { Link } from "react-router";
 import { getDifficultyBadgeClass } from "../lib/utils";
 
 function ActiveSessions({ sessions, isLoading, isUserInSession }) {
   return (
     <div className="lg:col-span-2 card bg-base-100 border-2 border-primary/20 hover:border-primary/30 h-full">
       <div className="card-body">
-        {/* HEADER SECTION */}
+        {/* HEADERS SECTION */}
         <div className="flex items-center justify-between mb-6">
           {/* TITLE AND ICON */}
           <div className="flex items-center gap-3">
@@ -30,15 +30,18 @@ function ActiveSessions({ sessions, isLoading, isUserInSession }) {
           </div>
         </div>
 
-        {/* SECTIONS LIST */}
+        {/* SESSIONS LIST */}
         <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
           {isLoading ? (
             <div className="flex items-center justify-center py-20">
-              <LoaderIcon className="size-10 animate-spin text-primary"/>
+              <LoaderIcon className="size-10 animate-spin text-primary" />
             </div>
           ) : sessions.length > 0 ? (
-            sessions.map(session => (
-              <div key={session._id} className="card bg-base-200 border-2 border-base-300 hover:border-primary/50">
+            sessions.map((session) => (
+              <div
+                key={session._id}
+                className="card bg-base-200 border-2 border-base-300 hover:border-primary/50"
+              >
                 <div className="flex items-center justify-between gap-4 p-5">
                   {/* LEFT SIDE */}
                   <div className="flex items-center gap-4 flex-1">
@@ -59,7 +62,7 @@ function ActiveSessions({ sessions, isLoading, isUserInSession }) {
                             session.difficulty.slice(1)}
                         </span>
                       </div>
-                      
+
                       <div className="flex items-center gap-4 text-sm opacity-80">
                         <div className="flex items-center gap-1.5">
                           <CrownIcon className="size-4" />
@@ -101,7 +104,6 @@ function ActiveSessions({ sessions, isLoading, isUserInSession }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
-export default ActiveSessions
+export default ActiveSessions;
