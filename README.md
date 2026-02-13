@@ -65,16 +65,16 @@ NODE_ENV=development
 CLIENT_URL=http://localhost:5173
 
 # Clerk Auth
-CLERK_PUBLISHABLE_KEY=pk_test_...
-CLERK_SECRET_KEY=sk_test_...
+CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
 
 # Stream Video & Chat
-STREAM_API_KEY=...
-STREAM_SECRET_KEY=...
+STREAM_API_KEY=your_stream_api_key
+STREAM_SECRET_KEY=your_stream_secret_key
 
 # Inngest
-INNGEST_EVENT_KEY=...
-INNGEST_SIGNING_KEY=...
+INNGEST_EVENT_KEY=your_inngest_event_key
+INNGEST_SIGNING_KEY=your_inngest_signing_key
 ```
 
 Start the backend server:
@@ -91,8 +91,8 @@ npm install
 
 Create a `.env` file in the `frontend` directory:
 ```env
-VITE_CLERK_PUBLISHABLE_KEY=pk_test_...
-VITE_STREAM_API_KEY=...
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+VITE_STREAM_API_KEY=your_stream_api_key
 VITE_API_URL=http://localhost:3000
 ```
 
