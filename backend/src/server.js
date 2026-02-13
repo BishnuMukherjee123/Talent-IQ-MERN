@@ -44,6 +44,23 @@ if (ENV.NODE_ENV === "production") {
 const startServer = async () => {
     try {
         await connectDB();
+        
+        // Remove potentially problematic index if it exists
+        try {
+            // dynamic import User model to avoid circular dependency issues if any, though standard import is fine
+            // actually let's use standard import.
+            // But wait, I need to import it at top.
+            // Let's just do it here. 
+            const User = (await import("./models/User.js")).default;
+            await User.collection.dropIndex("emale_1");
+            console.log("Dropped problematic index: emale_1");
+        } catch (error) {
+            // ignore error if index doesn't exist
+            if (error.code !== 27) {
+                 console.log("Index drop error (expected if not exists):", error.message);
+            }
+        }
+
         app.listen(ENV.PORT, () => console.log(`server is running on port: ${ENV.PORT}`));
     } catch (error) {
         console.error(`Error starting the server: ${error}`);
